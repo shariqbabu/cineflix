@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Confirmation — CineFlix</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <div class="auth-wrapper">
+    <div class="auth-card">
+
+      <!-- Brand Header -->
+      <div class="brand-header">
+        <div id="brand-logo-container">
+          <div class="brand-logo-fallback">C</div>
+        </div>
+        <h1 class="brand-title">Cine<span>Flix</span></h1>
+        <p class="brand-subtitle">Stream Movies, Web Series & Live Shows</p>
+      </div>
+
+      <!-- State: Loading / Verifying -->
+      <div id="loading-state">
+        <div class="status-icon-box loading">
+          <div class="spinner" style="width: 32px; height: 32px; border-width: 3px; border-top-color: var(--primary);"></div>
+        </div>
+        <h2 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Verifying Your Email...</h2>
+        <p style="font-size: 14px; color: var(--text-muted); line-height: 1.5;">
+          Please wait while we activate your CineFlix streaming account.
+        </p>
+      </div>
+
+      <!-- State: Verified Successfully -->
+      <div id="success-state" style="display: none;">
+        <div class="status-icon-box success">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+            <polyline points="22 4 12 14.01 9 11.01" />
+          </svg>
+        </div>
+        <h2 style="font-size: 22px; font-weight: 700; margin-bottom: 8px;">Email Verified!</h2>
+        <p style="font-size: 14px; color: var(--text-muted); line-height: 1.5; margin-bottom: 24px;">
+          Your CineFlix account is now verified and active. You can open the app and start streaming your favorite movies and shows!
+        </p>
+
+        <a id="open-app-btn" href="cineflix://auth/callback" class="btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M5 3l14 9-14 9V3z"/>
+          </svg>
+          Open CineFlix App
+        </a>
+
+        <div class="countdown-box">
+          Launching app in <strong id="countdown-sec">3</strong>s...
+        </div>
+      </div>
+
+      <!-- State: Verification Failed / Expired -->
+      <div id="error-state" style="display: none;">
+        <div class="status-icon-box error">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="15" y1="9" x2="9" y2="15"/>
+            <line x1="9" y1="9" x2="15" y2="15"/>
+          </svg>
+        </div>
+        <h2 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Verification Failed</h2>
+        <p id="error-message" style="font-size: 14px; color: var(--text-muted); line-height: 1.5; margin-bottom: 24px;">
+          This verification link is invalid or has expired. Please sign in or request a new confirmation email.
+        </p>
+
+        <a href="cineflix://auth/callback" class="btn-secondary">
+          Open CineFlix App
+        </a>
+      </div>
+
+      <div class="auth-footer">
+        Developed by <span>Shariq Babu</span>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="/js/confirm.js"></script>
+</body>
+</html>
