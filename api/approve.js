@@ -1,4 +1,4 @@
-﻿const https = require('https');
+const https = require('https');
 
 function renderHtml({ success, title, message, details }) {
   const accentColor = success ? '#00e676' : '#ff1e39';
