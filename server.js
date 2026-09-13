@@ -1,4 +1,4 @@
-require('dotenv').config();
+﻿require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
@@ -39,15 +39,20 @@ app.get('/', (req, res) => {
 });
 
 // Health check endpoint
+
+// Route: VIP Subscription 1-Click Approval
+app.all(['/api/approve', '/approve'], require('./api/approve'));
+
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', service: 'cineflix-auth-server', timestamp: new Date().toISOString() });
 });
 
 app.listen(PORT, () => {
   console.log(`=================================================`);
-  console.log(`  🎬 CineFlix Auth & Confirmation Server Started `);
-  console.log(`  🚀 Local URL: http://localhost:${PORT}`);
-  console.log(`  🔐 Reset Password: http://localhost:${PORT}/reset-password`);
-  console.log(`  ✉️  Email Confirm: http://localhost:${PORT}/confirm`);
+  console.log(`  ðŸŽ¬ CineFlix Auth & Confirmation Server Started `);
+  console.log(`  ðŸš€ Local URL: http://localhost:${PORT}`);
+  console.log(`  ðŸ” Reset Password: http://localhost:${PORT}/reset-password`);
+  console.log(`  âœ‰ï¸  Email Confirm: http://localhost:${PORT}/confirm`);
   console.log(`=================================================`);
 });
+
